@@ -2,7 +2,6 @@ require('isomorphic-fetch');
 const dotenv = require('dotenv');
 const Koa = require('koa');
 const next = require('next');
-const express = require('express');
 const {default: createShopifyAuth} = require('@shopify/koa-shopify-auth');
 const {verifyRequest} = require('@shopify/koa-shopify-auth');
 const {default: Shopify, ApiVersion} = require('@shopify/shopify-api');
@@ -22,7 +21,7 @@ Shopify.Context.initialize({
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
-var app = next({dev: dev});
+const app = next({dev: dev});
 const handle = app.getRequestHandler();
 
 const ACTIVE_SHOPIFY_SHOPS = {};

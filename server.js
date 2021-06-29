@@ -63,20 +63,6 @@ app.prepare().then(() => {
   router.get("/_next/webpack-hmr", handleRequest);
   router.get("(.*)", verifyRequest(), handleRequest);
 
-  app = express();
-
-  router.post('/webhooks/customers/redact', (req, res) => {
-    res.sendStatus(200);
-  });
-
-  router.post('/webhooks/shop/redact', (req, res) => {
-    res.sendStatus(200);
-  });
-
-  router.post('/webhooks/customers/data_request', (req, res) => {
-    res.sendStatus(200);
-  });
-
   server.use(router.allowedMethods());
   server.use(router.routes());
 
